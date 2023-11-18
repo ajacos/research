@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Random Name Generator</title>
+  </head>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    a {
+      color: black;
+      font-style: italic;
+    }
+    
+    a:hover {
+      font-style: normal;
+    }
+
+    textarea {
+      resize: none;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      width: 600px;
+      height: 300px;
+    }
+    
+    input[type=submit], input[type=number] {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      width: 200px;
+    }
+
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      width: 400px;
+      text-align: left;
+    }
+
+    .thin {
+      width: 70px; 
+    }
+  </style>
+  <body>
+    <a href="https://psd.sch.qa/wp-content/uploads/GRADE-7-5.pdf" target="_blank">Grade 7 Classlist</a><br>
+    <a href="https://psd.sch.qa/wp-content/uploads/GRADE-8-5.pdf" target="_blank">Grade 8 Classlist</a><br>
+    <a href="https://psd.sch.qa/wp-content/uploads/GRADE-9-5.pdf" target="_blank">Grade 9 Classlist</a><br>
+    <a href="https://psd.sch.qa/wp-content/uploads/GRADE-10-5.pdf" target="_blank">Grade 10 Classlist</a><br>
+    <form>
+      <textarea id="tb" type="text"  name="names" placeholder="Paste the names here" required></textarea>
+      <br>
+      <input type="number" name="number" id="num" placeholder="Amount you want to get">
+      <br>
+      <input type="submit" value="Submit" name="submit" id="submit"/>
+
+      <script src="min.js"></script>
+    </form>
+    <div>
+      <p id="textp"></p>
+      <table id="textn"></table>
+    </div>
+  </body>
+</html>
