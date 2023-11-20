@@ -33,6 +33,8 @@ document.getElementById("submit").addEventListener("click", e=>{
             document.getElementById("addbtn").innerHTML = "") : (document.getElementById("textp").innerHTML = "The names entered is less than the specified amount, please try again.",
             document.getElementById("textn").innerHTML = "",
             document.getElementById("addbtn").innerHTML = "")
+
+        if(e.value === "/clear") document.getElementById("textp").innerHTML = "",  document.getElementById("textn").innerHTML = "", document.getElementById("addbtn").innerHTML = "", document.getElementById("num").innerHTML = '<input type="number" name="number" id="num" placeholder="Amount you want to get">', e.value = "";
     }
     ;
     e.preventDefault(),
@@ -40,29 +42,27 @@ document.getElementById("submit").addEventListener("click", e=>{
 }
 );
 
-
+function shuffleWithoutRepetition(array) {
+    var i, j, t;
+    for (i = 0; i < array.length; i++) {
+      j = Math.floor(Math.random() * array.length);
+      if (j != i) {
+        t = array[i];
+        array[i] = array[j];
+        array[j] = t;
+      } else {
+        while (j == i) {
+          j = Math.floor(Math.random() * array.length);
+        }
+        t = array[i];
+        array[i] = array[j];
+        array[j] = t;
+      }
+    }
+    return array;
+}
 
 document.getElementById('10rst').addEventListener('click', e => {
-    function shuffleWithoutRepetition(array) {
-        var i, j, t;
-        for (i = 0; i < array.length; i++) {
-          j = Math.floor(Math.random() * array.length);
-          if (j != i) {
-            t = array[i];
-            array[i] = array[j];
-            array[j] = t;
-          } else {
-            while (j == i) {
-              j = Math.floor(Math.random() * array.length);
-            }
-            t = array[i];
-            array[i] = array[j];
-            array[j] = t;
-          }
-        }
-        return array;
-      }
-
     fetch("g10.json")
     .then(function(response) {
       return response.json(); // parse the JSON file
@@ -98,8 +98,6 @@ document.getElementById('10rst').addEventListener('click', e => {
 
       for(i = 0; i < g10.length; i++) {
         d = i+1
-        //fina.pop();
-        //g10[i] = '<tr><td class="thin">' + d + "</td><td>" + g10[i] + "</td></tr>"
         if(i <= 19) {
             g10[i] = '<tr><td class="thin">' + d + "</td><td>" + g10[i] + "</td><td class='sec'>Archimedes</td></tr>"
         } else if (i <= 38 ) {
