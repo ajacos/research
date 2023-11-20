@@ -128,4 +128,72 @@ document.getElementById('10rst').addEventListener('click', e => {
         
     })
 })
+
+document.getElementById('9rst').addEventListener('click', e => {
+    fetch("g9.json")
+    .then(function(response) {
+      return response.json(); // parse the JSON file
+    })
+    .then(function(data) {
+      let 
+      arr = data.arrhenius,
+      boy = data.boyle,
+      cur = data.curie,
+      dal = data.dalton,
+      fra = data.franklin,
+      lav = data.lavoisier,
+      men = data.mendeleev,
+      pau = data.pauling,
+      rut = data.rutherford,
+      g9 = []
+
+      
+      let 
+      arr1 = shuffleWithoutRepetition(arr).splice(0,14),
+      boy1 = shuffleWithoutRepetition(boy).slice(0, 21)
+      cur1 = shuffleWithoutRepetition(cur).slice(0, 21),
+      dal1 = shuffleWithoutRepetition(dal).slice(0, 22)
+      fra1 = shuffleWithoutRepetition(fra).slice(0, 13)
+      lav1 = shuffleWithoutRepetition(lav).slice(0, 21),
+      ment1 = shuffleWithoutRepetition(men).slice(0, 22),
+      pau1 = shuffleWithoutRepetition(pau).slice(0, 22),
+      rut1 = shuffleWithoutRepetition(rut).slice(0, 22),
+      final = []
+
+      g9 = g9.concat(arr1).concat(boy1).concat(cur1).concat(dal1).concat(fra1).concat(lav1).concat(ment1).concat(pau1).concat(rut1)
+      console.log(g9)
+      //g10.push(ber1)
+
+      for(i = 0; i < g9.length; i++) {
+        d = i+1
+        if(i <= 13) {
+            g9[i] = '<tr><td class="thin">' + d + "</td><td>" + g9[i] + "</td><td class='sec'>Arrhenius</td></tr>"
+        } else if (i <= 34 ) {
+            g9[i] = '<tr><td class="thin">' + d + "</td><td>" + g9[i] + "</td><td class='sec'>Boyle</td></tr>"
+        } else if (i <= 55 ) {
+            g9[i] = '<tr><td class="thin">' + d + "</td><td>" + g9[i] + "</td><td class='sec'>Curie</td></tr>"
+        } else if (i <= 77 ) {
+            g9[i] = '<tr><td class="thin">' + d + "</td><td>" + g9[i] + "</td><td class='sec'>Dalton</td></tr>"
+        } else if (i <= 90 ) {
+            g9[i] = '<tr><td class="thin">' + d + "</td><td>" + g9[i] + "</td><td class='sec'>Franklin</td></tr>"
+        } else if (i <= 111 ) {
+            g9[i] = '<tr><td class="thin">' + d + "</td><td>" + g9[i] + "</td><td class='sec'>Lavoisier</td></tr>"
+        } else if (i <= 133 ) {
+            g9[i] = '<tr><td class="thin">' + d + "</td><td>" + g9[i] + "</td><td class='sec'>Mendeleev</td></tr>"
+        } else if (i <= 155 ) {
+            g9[i] = '<tr><td class="thin">' + d + "</td><td>" + g9[i] + "</td><td class='sec'>Pauling</td></tr>"
+        } else if (i <= 177 ) {
+            g9[i] = '<tr><td class="thin">' + d + "</td><td>" + g9[i] + "</td><td class='sec'>Rutherford</td></tr>"
+        }
+
+      }
+    
+      document.getElementById("textn").innerHTML = '<tr><th class="thin">No.</th><th>Name:</th><th class="sec">Section:</th></tr>' + g9.join(''),
+      document.getElementById("textp").innerHTML = ""
+      document.getElementById("addbtn").innerHTML = ""
+      
+
+        
+    })
+})
 // By Aj Acosta
