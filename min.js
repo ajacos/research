@@ -5,17 +5,8 @@ document.getElementById("submit").addEventListener("click", e=>{
         t = t.split(/\r\n|\n\r|\r|\n/).length;
         let n = document.getElementById("num").value;
         if (n <= t && 0 != n) {
-            let l = []
-              , mm = [], r = e.value.toString();
+            let l = [], r = e.value.toString();
 
-
-            for (i = 0,
-                r = r.split(/\r\n|\n\r|\r|\n/); i < n; i++) {
-                    let d = i + 1;
-                    mm.push(r);
-                }
-
-                console.log(mm);
             for (i = 0,
             r = r.split(/\r\n|\n\r|\r|\n/); i < n; i++) {
                 let d = i + 1;
@@ -48,4 +39,10 @@ document.getElementById("submit").addEventListener("click", e=>{
     setTimeout(t, 450)
 }
 );
+
+
+
+document.getElementById('10rst').addEventListener('click', e => {
+    
+})
 // By Aj Acosta
