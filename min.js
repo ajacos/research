@@ -1,15 +1,13 @@
 document.getElementById('submit').addEventListener(
     'click',
     e => {
-      function t() {
+       let t = () => {
         let e = document.getElementById('tb'),
         t = e.value.replace(/^\s*$/gm, '').trim();
         t = t.split(/\r\n|\n\r|\r|\n/).length;
         let n = document.getElementById('num').value;
         if (n <= t && 0 != n) {
-          let l = [],
-          na = []
-          r = e.value;
+          let l = [], r = e.value.toString();
           
           for (i = 0, r = r.split(/\r\n|\n\r|\r|\n/); i < n; i++) {
             let a = i + 1;
@@ -19,9 +17,8 @@ document.getElementById('submit').addEventListener(
           }
 
           document.getElementById('textn').innerHTML = '<tr><th class="thin">No.</th><th>Name:</th></tr>'+l.join(''),
-          document.getElementById('textp').innerHTML = ''
-          document.getElementById('addbtn').innerHTML = '<br><button id="remove">Remove chosen names</button>';
-
+          document.getElementById('textp').innerHTML = '',
+          document.getElementById('addbtn').innerHTML = '<br id="rmvbr"><button id="remove">Remove chosen names</button>';
 
           for(i = 0; i < l.length; i++) {
             l[i] = l[i].replaceAll('<tr><td class="thin">', "").replaceAll('<td>', "").replaceAll('</td>', "").replaceAll('</tr>', "").replaceAll(/[0-9]/g, "");
@@ -32,8 +29,11 @@ document.getElementById('submit').addEventListener(
             return !l.includes(value); 
           });
 
-          document.getElementById('remove').addEventListener('click', () => {
-            e.value = nar.join("\n");
+          document.getElementById('remove').addEventListener('click', el => {
+            e.value = nar.join("\n")
+            document.getElementById('textp').innerHTML = 'Removed chosen names.'
+            document.getElementById('remove').remove()
+            document.getElementById('rmvbr').remove()
           })
           
         } else 0 == n ? (
@@ -51,6 +51,6 @@ document.getElementById('submit').addEventListener(
       e.preventDefault(),
       setTimeout(t, 450)
     }
-  ); // By Aj Acosta
+  ); 
   // By Aj Acosta
   
