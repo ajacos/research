@@ -203,7 +203,7 @@ document.getElementById('8rst').addEventListener('click', e => {
       let 
       ari = data.aristotle,
       dar = data.darwin,
-      fle = data.flmeing,
+      fle = data.fleming,
       hoo = data.hooke,
       jen = data.jenner,
       lin = data.linnaeus,
@@ -214,44 +214,44 @@ document.getElementById('8rst').addEventListener('click', e => {
 
       
       let 
-      ari1 = shuffleWithoutRepetition(ari).splice(0,14),
+      ari1 = shuffleWithoutRepetition(ari).splice(0, 19),
       dar1 = shuffleWithoutRepetition(dar).slice(0, 21)
-      fle1 = shuffleWithoutRepetition(fle).slice(0, 21),
-      hoo1 = shuffleWithoutRepetition(hoo).slice(0, 22)
-      jen1 = shuffleWithoutRepetition(jen).slice(0, 13)
-      lin1 = shuffleWithoutRepetition(lin).slice(0, 21),
-      mend1 = shuffleWithoutRepetition(mend).slice(0, 22),
-      past1 = shuffleWithoutRepetition(past).slice(0, 22),
-      ves1 = shuffleWithoutRepetition(ves).slice(0, 22),
+      fle1 = shuffleWithoutRepetition(fle).slice(0, 20),
+      hoo1 = shuffleWithoutRepetition(hoo).slice(0, 20)
+      jen1 = shuffleWithoutRepetition(jen).slice(0, 20)
+      lin1 = shuffleWithoutRepetition(lin).slice(0, 19),
+      mend1 = shuffleWithoutRepetition(mend).slice(0, 20),
+      past1 = shuffleWithoutRepetition(past).slice(0, 19),
+      ves1 = shuffleWithoutRepetition(ves).slice(0, 19),
       final = []
 
       g8 = g8.concat(ari1).concat(dar1).concat(fle1).concat(hoo1).concat(jen1).concat(lin1).concat(mend1).concat(past1).concat(ves1)
 
       for(i = 0; i < g8.length; i++) {
         d = i+1
-        if(i <= 13) {
-            g9[i] = '<tr><td class="thin">' + d + "</td><td>" + g9[i] + "</td><td class='sec'>Arrhenius</td></tr>"
-        } else if (i <= 34 ) {
-            g9[i] = '<tr><td class="thin">' + d + "</td><td>" + g9[i] + "</td><td class='sec'>Boyle</td></tr>"
-        } else if (i <= 55 ) {
-            g9[i] = '<tr><td class="thin">' + d + "</td><td>" + g9[i] + "</td><td class='sec'>Curie</td></tr>"
-        } else if (i <= 77 ) {
-            g9[i] = '<tr><td class="thin">' + d + "</td><td>" + g9[i] + "</td><td class='sec'>Dalton</td></tr>"
-        } else if (i <= 90 ) {
-            g9[i] = '<tr><td class="thin">' + d + "</td><td>" + g9[i] + "</td><td class='sec'>Franklin</td></tr>"
-        } else if (i <= 111 ) {
-            g9[i] = '<tr><td class="thin">' + d + "</td><td>" + g9[i] + "</td><td class='sec'>Lavoisier</td></tr>"
-        } else if (i <= 133 ) {
-            g9[i] = '<tr><td class="thin">' + d + "</td><td>" + g9[i] + "</td><td class='sec'>Mendeleev</td></tr>"
-        } else if (i <= 155 ) {
-            g9[i] = '<tr><td class="thin">' + d + "</td><td>" + g9[i] + "</td><td class='sec'>Pauling</td></tr>"
-        } else if (i <= 177 ) {
-            g9[i] = '<tr><td class="thin">' + d + "</td><td>" + g9[i] + "</td><td class='sec'>Rutherford</td></tr>"
+        if(i <= 18) {
+            g8[i] = '<tr><td class="thin">' + d + "</td><td>" + g8[i] + "</td><td class='sec'>Aristotle</td></tr>"
+        } else if (i <= 39 ) {
+            g8[i] = '<tr><td class="thin">' + d + "</td><td>" + g8[i] + "</td><td class='sec'>Darwin</td></tr>"
+        } else if (i <= 59 ) {
+            g8[i] = '<tr><td class="thin">' + d + "</td><td>" + g8[i] + "</td><td class='sec'>Fleming</td></tr>"
+        } else if (i <= 79 ) {
+            g8[i] = '<tr><td class="thin">' + d + "</td><td>" + g8[i] + "</td><td class='sec'>Hooke</td></tr>"
+        } else if (i <= 99 ) {
+            g8[i] = '<tr><td class="thin">' + d + "</td><td>" + g8[i] + "</td><td class='sec'>Jenner</td></tr>"
+        } else if (i <= 118 ) {
+            g8[i] = '<tr><td class="thin">' + d + "</td><td>" + g8[i] + "</td><td class='sec'>Linnaeus</td></tr>"
+        } else if (i <= 138 ) {
+            g8[i] = '<tr><td class="thin">' + d + "</td><td>" + g8[i] + "</td><td class='sec'>Mendel</td></tr>"
+        } else if (i <= 157 ) {
+            g8[i] = '<tr><td class="thin">' + d + "</td><td>" + g8[i] + "</td><td class='sec'>Pasteur</td></tr>"
+        } else if (i <= 176 ) {
+            g8[i] = '<tr><td class="thin">' + d + "</td><td>" + g8[i] + "</td><td class='sec'>Vesalius</td></tr>"
         }
 
       }
     
-      document.getElementById("textn").innerHTML = '<tr><th class="thin">No.</th><th>Name:</th><th class="sec">Section:</th></tr>' + g9.join(''),
+      document.getElementById("textn").innerHTML = '<tr><th class="thin">No.</th><th>Name:</th><th class="sec">Section:</th></tr>' + g8.join(''),
       document.getElementById("textp").innerHTML = ""
       document.getElementById("addbtn").innerHTML = ""
       

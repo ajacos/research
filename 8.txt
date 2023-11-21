@@ -1,0 +1,11 @@
+178 sample size 
+320 pop size  
+aristotle 35 -- 19
+darwin 37 -- 21
+fleming 36 -- 20
+hooke 36 -- 20
+jenner 36 -- 20
+linnaeus 35 -- 19
+mendel 36 -- 20
+pasteur 35 -- 19
+vesalius 34 --19
