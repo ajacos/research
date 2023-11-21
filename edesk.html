@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Settings || Aaron John Acosta</title>
+        <link rel="icon" href="newlogo.gif" type="image/icon type"/>
+        <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="mainstyle.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+            $(function() {
+                $("#datepicker").datepicker();
+            });
+        </script>
+        <script>
+            window.addEventListener("load", function() {
+                const loader = document.querySelector(".loader");
+                loader.className += " hidden";
+                // class "loader hidden"
+            });
+        </script>
+        <style>
+            .accordion {
+                background: #006a4e;
+                color: #FFF;
+                cursor: pointer;
+                padding: 15px 18px;
+                width: 500px;
+                text-align: left;
+                border: 1px solid white;
+                //border: 1px solid rgba(200,200,200,0.5);
+                transition: 0.4s;
+                font: 16px Lato, sans-serif;
+                outline: none;
+                box-sizing: border-box;
+                margin-top: 10px;
+                border-radius: 10px 10px 10px 10px;
+            }
+
+            .panel {
+                width: 500px;
+                box-sizing: border-box;
+                border-radius: 0px 0px 10px 10px;
+                border: 1px solid rgba(255,255,255,0);
+                text-align: justify;
+                padding: 0px 18px;
+                background: white;
+                overflow: hidden;
+                max-height: 0;
+                transition: max-height 0.3s ease-out;
+                background: rgba(0,0,0,0.1);
+            }
+
+            .pannel p {
+                font: 16px Lato, sans-serif;
+            }
+
+            .active, .accordion:hover {
+                background: rgb(38,90,32);
+                color: rgb(255,223,0);
+                border: 1px solid rgb(255,223,0);
+            }
+
+            .active {
+                border-radius: 10px 10px 0px 0px;
+                border-bottom: 1px solid rgba(255,255,255,0);
+            }
+
+            .accordion:after {
+                content: '\02795';
+                font-size: 15px;
+                float: right;
+                margin-left: 5px;
+            }
+
+            .active:after {
+                content: '\2796';
+                //border-radius: 10px 10px 0px 0px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="loader">
+            <img src="loading.gif" alt="Loading..."/>
+        </div>
+        <div class='head'>
+            <div class='psd'>
+                <a href='http://www.psd.sch.qa'>
+                    <img src='newlogo.gif'/>
+                </a>
+                <a href='http://www.psd.sch.qa'>
+                    <p id='phil'>Philippine School Doha</p>
+                </a>
+                <p id='room'>E-DESK</p>
+            </div>
+        </div>
+        <div class='menu'>
+            <div class='info'>
+                <p id='name'>Aaron John L Acosta</p>
+                <p id='uname'>
+                    Advisory Class: <a href='sadvisory.php?seccode=1014'>10 - Faraday</a>
+                </p>
+            </div>
+            <!--end of info-->
+            <div class='links'>
+                <a href='shome.php'>Home</a>
+                <a href='workplace.php'>MyDesk</a>
+                <a id='active' href='ssettings.php'>Settings</a>
+                <a href='logout.php'>Logout</a>
+            </div>
+        </div>
+        <!--end of menu-->
+        <div class='side'>
+            <div class='myinfo'>
+                <div class='myinfohead'>
+                    <p>Advisory Class:</p>
+                </div>
+                <p id='adv'>
+                    <a href='sadvisory.php?seccode=1014'>Faraday</a>
+                </p>
+</p></div>
+<div class='myinfo'>
+    <div class='myinfohead'>
+        <p>Subjects:</p>
+    </div>
+    <p id='adv'>
+        <a title='Arabic 10' href='ssubjectpost.php?subcode=ara10'>Arabic 10</a>
+    </p>
+    <p id='adv'>
+        <a title='Arts 10' href='ssubjectpost.php?subcode=art10'>Arts 10</a>
+    </p>
+    <p id='adv'>
+        <a title='Contemporary Issues 10' href='ssubjectpost.php?subcode=soc10'>Contemporary Issues 10</a>
+    </p>
+    <p id='adv'>
+        <a title='Elective Math 10' href='ssubjectpost.php?subcode=ema10'>Elective Math 10</a>
+    </p>
+    <p id='adv'>
+        <a title='English 10' href='ssubjectpost.php?subcode=eng10'>English 10</a>
+    </p>
+    <p id='adv'>
+        <a title='Filipino 10' href='ssubjectpost.php?subcode=fil10'>Filipino 10</a>
+    </p>
+    <p id='adv'>
+        <a title='Health 10' href='ssubjectpost.php?subcode=hea10'>Health 10</a>
+    </p>
+    <p id='adv'>
+        <a title='Mathematics 10' href='ssubjectpost.php?subcode=mat10'>Mathematics 10</a>
+    </p>
+    <p id='adv'>
+        <a title='Music 10' href='ssubjectpost.php?subcode=mus10'>Music 10</a>
+    </p>
+    <p id='adv'>
+        <a title='Physical Education 10' href='ssubjectpost.php?subcode=phy10'>Physical Education 10</a>
+    </p>
+    <p id='adv'>
+        <a title='Qatar History 10' href='ssubjectpost.php?subcode=qat10'>Qatar History 10</a>
+    </p>
+    <p id='adv'>
+        <a title='Research 10' href='ssubjectpost.php?subcode=res10'>Research 10</a>
+    </p>
+    <p id='adv'>
+        <a title='Science 10' href='ssubjectpost.php?subcode=sci10'>Science 10</a>
+    </p>
+    <p id='adv'>
+        <a title='TLE 10 - Electrical Installation & Maintenance' href='ssubjectpost.php?subcode=eim99'>TLE 10 - Electrical Installati...</a>
+    </p>
+    <p id='adv'>
+        <a title='Values Education 10' href='ssubjectpost.php?subcode=val10'>Values Education 10</a>
+    </p>
+</div>
+</div>
+<!-- end side-->
+<div class='content'>
+    <!--Do Not Go Beyond this part-->
+    <div class='barde'>
+        <p>If there are problems or if you want to recommend something just message Aaron Acosta of 10-Faraday :)</p>
+        <a href="./LATEST-LIST-SY23-24-JUNIOR-H.S..xlsx" target="_blank">JHS Students List</a><br>
+        <br>
+        <button id="10rst">Grade 10 RST</button>
+        <button id="9rst">Grade 9 RST</button>
+        <button id="8rst">Grade 8 RST</button>
+        <button>Grade 7 RST</button>
+        <br>
+        <br>
+        <form>
+        <textarea id="tb" type="text"  name="names" placeholder="Paste the names here" required></textarea>
+        <br>
+        <input type="number" name="number" id="num" placeholder="Amount you want to get" min="0">
+        <br>
+        <input type="submit" value="Submit" name="submit" id="submit"/>
+
+        <script src="min2.js"></script>
+        </form>
+        <div class="bg">
+        <p id="textp"></p>
+        <table id="textn"></table>
+        <div id="addbtn"></div>
+        </div>
+    </div>
+</div>
+<!--End of Content Do Not Go Beyond this part-->
+<div class='footer'>
+    <p>E-Desk</p>
+    <p>an On-line Learning Portal of Philippine School Doha</p>
+    <p id='tamsoy'>by: //jbarde 2023 </p>
+</div>
+</body></html>
