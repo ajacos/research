@@ -1,4 +1,4 @@
-document.getElementById("submit").addEventListener("click", e=>{
+/*document.getElementById("submit").addEventListener("click", e=>{
     let t = ()=>{
         let e = document.getElementById("tb")
           , t = e.value.replace(/^\s*$/gm, "").trim();
@@ -40,7 +40,7 @@ document.getElementById("submit").addEventListener("click", e=>{
     e.preventDefault(),
     setTimeout(t, 450)
 }
-);
+);*/
 
 function shuffleWithoutRepetition(array) {
     var i, j, t;
