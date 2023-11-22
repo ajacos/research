@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <form action="index.php">
+        <p>Select a section</p>
+        <select name="" id="secs">
+            <option value="1">Archimedes</option>
+            <option value="2">Bernoulli</option>
+            <option value="3">Edison</option>
+            <option value="4">Einstein</option>
+            <option value="5">Faraday</option>
+            <option value="6">Maxwell</option>
+            <option value="7">Newton</option>
+            <option value="8">Pascal</option>
+            <option value="9">Thomson</option>
+        </select>
+        <input type="submit" id="submit" value="submit">
+        <script>
+            document.getElementById("submit").addEventListener('click' e => {
+                e.preventDefault();
+                console.log(document.getElementById("secs").value);
+            })
+/*
+            $("#secs").on('change', function() {
+                console.log($(this).val());
+                /*if ($(this).val() == 'selectionKey'){
+                    DoSomething();
+                } else {
+                    DoSomethingElse();
+                }
+            });*/
+        </script>
+    </form>
+</body>
+</html>
