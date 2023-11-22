@@ -3,6 +3,8 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "research";
+$length = 8;
+$a_code = substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmopqrstuvwxyz'),1,$length);
 $aid = $_POST['aid'];
 
 
@@ -11,10 +13,11 @@ try {
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  $sql = "UPDATE a_codes SET  status=0 WHERE id=:id";
+  $sql = "UPDATE a_codes SET a_code=:a_code , status=0 WHERE id=:id";
 
   // Prepare statement
   $stmt = $conn->prepare($sql);
+  $stmt->bindParam(':a_code', $a_code);
   $stmt->bindParam(':id', $aid);
 
   // execute the query
@@ -27,5 +30,5 @@ try {
 }
 
 $conn = null;
-echo "<script>history.back()</script>"
+echo $a_code;
 ?>

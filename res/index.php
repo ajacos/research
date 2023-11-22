@@ -97,6 +97,8 @@
         <input type="button" value="Refresh Data" id="refresh">
         <br>
         <br>
+        <div id="insert" class="hide">
+        </div>
         <script>
             $("#rst").click(function(event) {
                 event.preventDefault();
@@ -121,7 +123,27 @@
                     http.onreadystatechange = function() {
                         if(http.readyState == 4 && http.status == 200) {
                             document.getElementById('insert').innerHTML = this.responseText;
-                            
+
+                            let userSelection = document.getElementsByClassName('rst');
+
+                            for(let i = 0; i < userSelection.length; i++) {
+                            userSelection[i].addEventListener("click", function(e) {
+                                e.preventDefault();
+                                let http1 = new XMLHttpRequest();
+                                let url1 = 'resetcode.php';
+                                let params1 = `aid=${userSelection[i].parentElement.lastChild.value}`;
+                                http1.open('POST', url1, true);
+
+                                http1.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                                http1.onreadystatechange = function() {
+                                    if(http1.readyState == 4 && http1.status == 200) {
+                                        userSelection[i].parentElement.previousElementSibling.innerText = "Unused"
+                                        userSelection[i].parentElement.previousElementSibling.previousElementSibling.innerText = this.responseText
+                                    }
+                                }
+                                http1.send(params1);
+                            })
+                            }
                         }
                     }
                     http.send(params);
@@ -154,8 +176,7 @@
             });
         </script>
     </form>
-    <div id="insert" class="hide">
-    </div>
+
 
 </body>
 </html>

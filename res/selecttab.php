@@ -59,12 +59,11 @@
     ?>
 
         <tr>
-            <script>console.log("Hello World")</script>
             <td><?php echo $row['sec_name'] ?></td>
             <td class="number"><?php echo $row['group_num'] ?></td>
             <td><?php echo $row['a_code'] ?></td>
             <td><?php if($row['status'] == 0) {echo "Unused";} else {echo"Used";} ?></td>
-            <td><form action="resetcode.php" method="post"><input id="rst" value="Reset Code" type="submit"> <input type="hidden" name="aid" value="<?php echo $row['id'] ?>"></form></td>
+            <td><input id="rst" class="rst" value="Reset Code" type="submit"> <input type="hidden" name="aid" value="<?php echo $row['id'] ?>"></td>
         </tr>
 
 
