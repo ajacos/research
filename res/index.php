@@ -94,17 +94,11 @@
             <option value="8">Pascal</option>
             <option value="9">Thomson</option>
         </select>
-        <input type="button" value="Refresh Data" id="refresh">
         <br>
         <br>
         <div id="insert" class="hide">
         </div>
         <script>
-            $("#rst").click(function(event) {
-                event.preventDefault();
-                console.log(this.parentElement[1])
-            });
-            
             document.getElementById("secs").addEventListener('input', e => {
                 e.preventDefault();
                 if (document.getElementById("secs").value == 0) {
@@ -144,31 +138,6 @@
                                 http1.send(params1);
                             })
                             }
-                        }
-                    }
-                    http.send(params);
-                }
-            });
-
-            document.getElementById("refresh").addEventListener('click', e => {
-                e.preventDefault();
-                if (document.getElementById("secs").value == 0) {
-                    document.getElementById('insert').classList.add('hide');
-                    document.getElementById('insert').classList.remove('show');
-                    document.getElementById('insert').innerHTML = ""
-                } else {
-                    document.getElementById('insert').classList.add('show');
-                    document.getElementById('insert').classList.remove('hide');
-                    let http = new XMLHttpRequest();
-                    let url = 'selecttab.php';
-                    let params = `sec=${document.getElementById("secs").value}`;
-                    http.open('POST', url, true);
-
-                    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-                    http.onreadystatechange = function() {
-                        if(http.readyState == 4 && http.status == 200) {
-                            document.getElementById('insert').innerHTML = this.responseText;
-                            
                         }
                     }
                     http.send(params);
