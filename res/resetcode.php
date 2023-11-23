@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "research";
+$username = "bael107comprog";
+$password = "passbael107comprog";
+$dbname = "bael107comprog";
 $length = 8;
 $a_code = substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmopqrstuvwxyz'),1,$length);
 $aid = $_POST['aid'];
