@@ -5,9 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Group</title>
+    <style>
+        * {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .hide {
+        display: none;
+        }
+    </style>
 </head>
 <body>
-    <form>
+    <form id="login">
         <input id="a_code" type="text" placeholder="Access Code" name="a_code">
         <input id="sub" type="submit" value="Login" name="submit">
     </form>
@@ -22,10 +31,19 @@
             http.onreadystatechange = function() {
                 if(http.readyState == 4 && http.status == 200) {
                     console.log(this.responseText);
+                    document.getElementById('data').innerHTML = this.responseText;
+                    document.getElementById('login').classList.add('hide');
+                    import("./min2.js").then(module => {
+
+                    })
                 }
             }
             http.send(params);            
         })
     </script>
+    <div id="data">
+
+    </div>
+
 </body>
 </html>
