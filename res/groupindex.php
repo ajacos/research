@@ -93,40 +93,59 @@
       width: 100px;
     }
 
+    #err {
+      color: red;
+    }
+
   </style>
   <body>
+    <!--A json file for the info of the sections that matches the data in the database-->
     <p>If there are problems or if you want to recommend something just message Aaron Acosta, Rafael Calixtro or Claver Bael of 10-Faraday :)</p>
     <p><strong>Be CAREFUL in using this program your group is limited to 1 use only.</strong></p>
-
+    <!--
     <button id="10rst">Grade 10 RST</button>
     <button id="9rst">Grade 9 RST</button>
     <button id="8rst">Grade 8 RST</button>
     <button>Grade 7 RST</button>
     <br>
     <br>
+    -->
     <form>
-      <select name="" id="secs">
+      <select name="secs" id="level" required>
         <option value="0">Select a Level</option>
         <option value="1">Grade 7</option>
         <option value="2">Grade 8</option>
-        <option value="3">Graded 9</option>
+        <option value="3">Grade 9</option>
         <option value="4">Grade 10</option>
+        <option value="5">All JHS</option>
       </select>
-      <select name="" id="secs">
-        <option value="0">Select a Section</option>
-        <option value="10">All Sections</option>
-        <option value="1">Archimedes</option>
-        <option value="2">Bernoulli</option>
-        <option value="3">Edison</option>
-        <option value="4">Einstein</option>
-        <option value="5">Faraday</option>
-        <option value="6">Maxwell</option>
-        <option value="7">Newton</option>
-        <option value="8">Pascal</option>
-        <option value="9">Thomson</option>
+      <select name="secs" id="level1" class="hide">
+        <option value="0">Select a Level</option>
+        <option value="1" id="lopt1">Grade 7</option>
+        <option value="2" id="lopt2">Grade 8</option>
+        <option value="3" id="lopt3">Grade 9</option>
+        <option value="4" id="lopt4">Grade 10</option>
       </select>
+      <select name="secs" id="level2" class="hide">
+        <option value="0">Select a Level</option>
+        <option value="1" id="2lopt1">Grade 7</option>
+        <option value="2" id="2lopt2">Grade 8</option>
+        <option value="3" id="2lopt3">Grade 9</option>
+        <option value="4" id="2lopt4">Grade 10</option>
+      </select>
+      <input type="number" name="" placeholder="populationsize" id="pop" value="" readonly class="hide">
+      <input type="number" name="" placeholder="samplesize" id="sam" class="hide" readonly>
+      <br><br>
+      <input type="button" id="addlevel" class="hide" value="Add another level">
+      <input type="button" id="addlevel2" class="hide" value="Add another level">
+      <input type="button" id="remlevel1" class="hide" value="Remove level">
+      <input type="button" id="remlevel2" class="hide" value="Remove level">
+      <br><br>
+      <input type="submit" value="Submit Query" id="submit" class="hide">
+      <br><br>
+      <p id="err" class="hide"></p>
     </form>
-    <div>
+    <div class="hide">
       <p id="textp"></p>
       <table id="textn"></table>
       <div id="addbtn"></div>

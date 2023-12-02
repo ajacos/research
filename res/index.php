@@ -80,28 +80,23 @@
 </head>
 <body>
     <form action="#" method="post">
-        <p>Select a section</p>
-        <select name="" id="secs">
-            <option value="0">Select a Section</option>
-            <option value="10">All Sections</option>
-            <option value="1">Archimedes</option>
-            <option value="2">Bernoulli</option>
-            <option value="3">Edison</option>
-            <option value="4">Einstein</option>
-            <option value="5">Faraday</option>
-            <option value="6">Maxwell</option>
-            <option value="7">Newton</option>
-            <option value="8">Pascal</option>
-            <option value="9">Thomson</option>
+        <p>Select amount to display</p>
+        <select name="" id="amo">
+            <option value="0">Select amount to display</option>
+            <option value="1">10</option>
+            <option value="2">30</option>
+            <option value="3">50</option>
+            <option value="4">100</option>
+            <option value="5">All</option>
         </select>
         <br>
         <br>
         <div id="insert" class="hide">
         </div>
         <script>
-            document.getElementById("secs").addEventListener('input', e => {
+            document.getElementById("amo").addEventListener('input', e => {
                 e.preventDefault();
-                if (document.getElementById("secs").value == 0) {
+                if (document.getElementById("amo").value == 0) {
                     document.getElementById('insert').classList.add('hide');
                     document.getElementById('insert').classList.remove('show');
                     document.getElementById('insert').innerHTML = ""
@@ -110,34 +105,13 @@
                     document.getElementById('insert').classList.remove('hide');
                     let http = new XMLHttpRequest();
                     let url = 'selecttab.php';
-                    let params = `sec=${document.getElementById("secs").value}`;
+                    let params = `amo=${document.getElementById("amo").value}`;
                     http.open('POST', url, true);
 
                     http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
                     http.onreadystatechange = function() {
                         if(http.readyState == 4 && http.status == 200) {
                             document.getElementById('insert').innerHTML = this.responseText;
-
-                            let userSelection = document.getElementsByClassName('rst');
-
-                            for(let i = 0; i < userSelection.length; i++) {
-                            userSelection[i].addEventListener("click", function(e) {
-                                e.preventDefault();
-                                let http1 = new XMLHttpRequest();
-                                let url1 = 'resetcode.php';
-                                let params1 = `aid=${userSelection[i].parentElement.lastChild.value}`;
-                                http1.open('POST', url1, true);
-
-                                http1.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-                                http1.onreadystatechange = function() {
-                                    if(http1.readyState == 4 && http1.status == 200) {
-                                        userSelection[i].parentElement.previousElementSibling.innerText = "Unused"
-                                        userSelection[i].parentElement.previousElementSibling.previousElementSibling.innerText = this.responseText
-                                    }
-                                }
-                                http1.send(params1);
-                            })
-                            }
                         }
                     }
                     http.send(params);

@@ -11,7 +11,15 @@
         }
 
         .hide {
-        display: none;
+            display: none;
+        }
+
+        .show {
+            display: inline-block;
+        }
+
+        input[type=number] {
+            width: 50px !important;
         }
     </style>
 </head>
@@ -30,12 +38,14 @@
             http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
             http.onreadystatechange = function() {
                 if(http.readyState == 4 && http.status == 200) {
-                    console.log(this.responseText);
-                    document.getElementById('data').innerHTML = this.responseText;
-                    document.getElementById('login').classList.add('hide');
-                    import("./min2.js").then(module => {
+                    if(this.responseText == "Wrong access code, please try again.") {
+                        document.getElementById('data').innerHTML = this.responseText;
+                    } else {
+                        document.getElementById('login').classList.add('hide');
+                        import("./min2.js").then(module => {})
+                        document.getElementById('data').innerHTML = this.responseText;
+                    }
 
-                    })
                 }
             }
             http.send(params);            
