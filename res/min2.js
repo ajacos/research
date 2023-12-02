@@ -216,6 +216,8 @@ remlevel1.addEventListener('click', () => {
     addlevel2.classList.remove('show')
     remlevel1.classList.add('hide')
     remlevel1.classList.remove('show')
+    addlevel.classList.add('show')
+    addlevel.classList.remove('hide')
 })
 
 remlevel2.addEventListener('click', () => {
