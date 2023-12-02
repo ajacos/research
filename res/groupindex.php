@@ -16,18 +16,9 @@
 
         if ($stmt->rowCount() > 0) {
             foreach($stmt as $row) {
-                //echo 'found data';
-                $update = "UPDATE a_codes SET status='1' WHERE a_code=:a_code";
-
-                // Prepare statement
-                $stmt = $conn->prepare($update);
-                $stmt->bindParam(':a_code', $a_code);
-            
-                // execute the query
-                $stmt->execute();
-                //echo "username used";
+              $acode = $row['a_code'];
             }   
-            ?>
+?>
             
 
 
@@ -110,7 +101,7 @@
     <br>
     <br>
     -->
-    <form>
+    <form id="frm">
       <select name="secs" id="level" required>
         <option value="0">Select a Level</option>
         <option value="1">Grade 7</option>
@@ -133,6 +124,7 @@
         <option value="3" id="2lopt3">Grade 9</option>
         <option value="4" id="2lopt4">Grade 10</option>
       </select>
+      <input type="submit" value="Submit Query" id="submit" class="hide">
       <input type="number" name="" placeholder="populationsize" id="pop" value="" readonly class="hide">
       <input type="number" name="" placeholder="samplesize" id="sam" class="hide" readonly>
       <br><br>
@@ -141,8 +133,7 @@
       <input type="button" id="remlevel1" class="hide" value="Remove level">
       <input type="button" id="remlevel2" class="hide" value="Remove level">
       <br><br>
-      <input type="submit" value="Submit Query" id="submit" class="hide">
-      <br><br>
+      <input type="hidden" value="<?= $acode ?>" id="acode">
       <p id="err" class="hide"></p>
     </form>
     <div class="hide">
