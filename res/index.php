@@ -1,32 +1,3 @@
-<!--?php/*
-    $length = 8;
-    $sec = "1011";
-    $group_num = "1";
-    $a_code = substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmopqrstuvwxyz'),1,$length);
-
-
-
-    $servername = "sql12.freemysqlhosting.net";
-    $username = "sql12664188";
-    $password = "rZdSs7nUcd";
-    $dbname = "sql12664188";
-
-    try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $stmt = $conn->prepare("INSERT INTO a_codes (sec, group_num, a_code) VALUES (:sec, :group_num, :a_code)");
-    $stmt->bindParam(':sec', $sec);
-    $stmt->bindParam(':group_num', $group_num);
-    $stmt->bindParam(':a_code', $a_code);
-  
-    $stmt->execute();
-    echo "New record created successfully";
-    } catch(PDOException $e) {
-    echo $sql . "<br>" . $e->getMessage();
-    }
-
-    $conn = null;*/
-?-->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
