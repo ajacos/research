@@ -247,6 +247,8 @@ remlevel1.addEventListener('click', () => {
     remlevel1.classList.remove('show')
     addlevel.classList.add('show')
     addlevel.classList.remove('hide')
+    sub.classList.add('show')
+    sub.classList.remove('hide')
 })
 
 remlevel2.addEventListener('click', () => {
@@ -261,6 +263,8 @@ remlevel2.addEventListener('click', () => {
     remlevel2.classList.remove('show')
     addlevel2.classList.add('show')
     addlevel2.classList.remove('hide')
+    sub.classList.add('show')
+    sub.classList.remove('hide')
 })
 
 sub.addEventListener('click', (e) => {
@@ -268,14 +272,55 @@ sub.addEventListener('click', (e) => {
     let answer = confirm('Are you sure this is your final query?\nYour group is only limited to 1 use.\nThis action is irrevocable.');
     if(answer == true) {
         let http = new XMLHttpRequest();
-        let url = 'updateacode.php';
-        let params = `a_code=${document.getElementById("acode").value}`;
+        let url = 'query2.php';
+        let params;
+        let fparams = level.value;
+        let fparams2 = level1.value;
+        let fparams3 = level2.value;
+        if (level2.value && level2.value != "0") {
+            if (level2.value == "1") {
+                fparams3 = `secs1=${fparams}&secs2=${fparams2}&secs3=1`;
+            } else if (level2.value == "2") {
+                fparams3 = `secs1=${fparams}&secs2=${fparams2}&secs3=2`;
+            } else if (level2.value == "3") {
+                fparams3 = `secs1=${fparams}&secs2=${fparams2}&secs3=3`;
+            } else if (level2.value == "4") {
+                fparams3 = `secs1=${fparams}&secs2=${fparams2}&secs3=4`;
+            }
+            params = `a_code=${document.getElementById("acode").value}&`+fparams3; 
+        }  else if (level1.value && level1.value != "0") {
+            if (level1.value == "1") {
+                fparams2 = `secs1=${fparams}&secs2=1`;
+            } else if (level1.value == "2") {
+                fparams2 = `secs1=${fparams}&secs2=2`;
+            } else if (level1.value == "3") {
+                fparams2 = `secs1=${fparams}&secs2=3`;
+            } else if (level1.value == "4") {
+                fparams2 = `secs1=${fparams}&secs2=4`;
+            }
+            params = `a_code=${document.getElementById("acode").value}&`+fparams2; 
+        } else if (level.value && level.value != "0") {
+            if (level.value == "1") {
+                fparams = `secs1=1`;
+            } else if (level.value == "2") {
+                fparams = `secs1=2`;
+            } else if (level.value == "3") {
+                fparams = `secs1=3`;
+            } else if (level.value == "4") {
+                fparams = `secs1=4`;
+            } else if (level.value == "5") {
+                fparams = `secs1=JHS`;
+            }
+            params = `a_code=${document.getElementById("acode").value}&`+fparams; 
+        } 
         http.open('POST', url, true);
         http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         http.onreadystatechange = () => {
             if(http.readyState == 4 && http.status == 200) {
-                console.log('Updated')
                 frm.classList.add('hide')
+                let array = JSON.parse(http.response)
+                let i;
+                console.log(slovin(array.length, 0.05))
             }
         }
         http.send(params)       

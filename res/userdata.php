@@ -11,7 +11,7 @@
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         //$sql = "SELECT * FROM a_codes WHERE a_code='$a_code'";
-        $stmt = $conn->prepare('SELECT * FROM a_codes');
+        $stmt = $conn->prepare('SELECT * FROM students WHERE sec_code LIKE "10%" OR sec_code LIKE "09%"');
         $stmt->execute();
 
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
