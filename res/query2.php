@@ -1,10 +1,6 @@
 <?php
     if (isset($_POST['a_code'])) {
     header("Content-Type: application/json; charset=UTF-8");
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "research";
     $a_code = $_POST['a_code'];
     //echo $_POST['secs1'];
 
@@ -47,19 +43,18 @@
 
     if (isset($level1)) {
         if ($level1 == "JHS") {
-            $query = "SELECT username FROM students WHERE count <= 6;";
+            $query = "SELECT * FROM students WHERE count <= 6;";
         } else {
-            $query = "SELECT * FROM students WHERE sec_code LIKE '".$level1."%' AND count <= 6;";
+            $query = "SELECT * FROM students WHERE level = ".$level1." AND count <= 6;";
         }
     } if (isset($level1, $level2)) {
-        $query = "SELECT * FROM students WHERE sec_code LIKE '".$level1."%' OR sec_code LIKE '".$level2."%' AND count <= 6;";
+        $query = "SELECT * FROM students WHERE level = ".$level1." OR level = ".$level2." AND count <= 6;";
     } if (isset($level1, $level2, $level3)) {
-        $query = "SELECT * FROM students WHERE sec_code LIKE '".$level1."%' OR sec_code LIKE '".$level2."%' OR sec_code LIKE '".$level3."%' AND count <= 6;";
+        $query = "SELECT * FROM students WHERE level = ".$level1." OR level = ".$level2." OR level = ".$level3." AND count <= 6;";
     }
 
     try {
-        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        include 'conn.php';
         
         $sql = "UPDATE a_codes SET status=1 WHERE a_code=:a_code";
         $stmt = $conn->prepare($sql);

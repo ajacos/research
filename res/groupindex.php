@@ -1,13 +1,8 @@
 <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "research";
     $a_code = $_POST['a_code'];
 
     try {
-        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        include 'conn.php';
 
         //$sql = "SELECT * FROM a_codes WHERE a_code='$a_code'";
         $stmt = $conn->prepare('SELECT * FROM a_codes WHERE a_code=:a_code /*AND status=0*/');
@@ -143,10 +138,6 @@
     </div>
   </body>
 </html>
-
-
-
-
             <?php
         } else {
         echo "Wrong access code, please try again.";

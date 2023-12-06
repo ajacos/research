@@ -4,8 +4,6 @@ let slovin = (N, e) => {
     return n
 }
 
-console.log(slovin(334, 0.05))
-
 window.onbeforeunload = () => {
     return "Are you sure you want to close this tab?";
 }
