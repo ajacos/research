@@ -59,8 +59,24 @@
     table, th, td {
       border: 1px solid black;
       border-collapse: collapse;
-      width: 480px;
+      width: 500px;
       text-align: left;
+    }
+
+    .name {
+      width: 286px;
+    }
+
+    .sec {
+      width: 100px;
+    }
+
+    .no {
+      width: 50px;
+    }
+
+    .level {
+      width: 50px;
     }
 
     table tr:nth-child(even) {
@@ -136,6 +152,14 @@
       <table id="textn"></table>
       <div id="addbtn"></div>
     </div>
+    <table id="data2">
+        <tr>
+            <th class="no">No.</th>
+            <th class="name">Name</th>
+            <th class="level">Level</th>
+            <th class="sec">Section</th>
+        </tr>
+    </table>
   </body>
 </html>
             <?php

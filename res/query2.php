@@ -1,6 +1,6 @@
 <?php
+    header("Content-Type: application/json; charset=UTF-8"); 
     if (isset($_POST['a_code'])) {
-    header("Content-Type: application/json; charset=UTF-8");
     $a_code = $_POST['a_code'];
     //echo $_POST['secs1'];
 
@@ -43,14 +43,22 @@
 
     if (isset($level1)) {
         if ($level1 == "JHS") {
-            $query = "SELECT * FROM students WHERE count <= 6;";
+            $query = "SELECT * FROM students WHERE count <= 9;";
+            $secquery = "SELECT * FROM section;";
+            $sample = "1";
         } else {
-            $query = "SELECT * FROM students WHERE level = ".$level1." AND count <= 6;";
+            $query = "SELECT * FROM students WHERE level = ".$level1." AND count <= 9;";
+            $secquery = "SELECT * FROM section WHERE sec_code LIKE '".$level1."%';";
+            $sample = "0";
         }
     } if (isset($level1, $level2)) {
-        $query = "SELECT * FROM students WHERE level = ".$level1." OR level = ".$level2." AND count <= 6;";
+        $query = "SELECT * FROM students WHERE level = ".$level1." OR level = ".$level2." AND count <= 9;";
+        $secquery = "SELECT * FROM section WHERE sec_code LIKE '".$level1."%' OR sec_code LIKE '".$level2."%';";
+        $sample = "0";
     } if (isset($level1, $level2, $level3)) {
-        $query = "SELECT * FROM students WHERE level = ".$level1." OR level = ".$level2." OR level = ".$level3." AND count <= 6;";
+        $secquery = "SELECT * FROM section WHERE sec_code LIKE '".$level1."%' OR sec_code LIKE '".$level2."%' OR sec_code LIKE '".$level3."%';";
+        $query = "SELECT * FROM students WHERE level = ".$level1." OR level = ".$level2." OR level = ".$level3." AND count <= 9;";
+        $sample = "0";
     }
 
     try {
@@ -64,11 +72,29 @@
         $stmt2 = $conn->prepare($query);
         $stmt2->execute();
 
+        $stmt3 = $conn->prepare($secquery);
+        $stmt3->execute();
+
+        $sections = $stmt3->fetchAll(PDO::FETCH_ASSOC);
+        $sections = mb_convert_encoding($sections, 'UTF-8', 'UTF-8');
+
 
         $results = $stmt2->fetchAll(PDO::FETCH_ASSOC);
         $results = mb_convert_encoding($results, 'UTF-8', 'UTF-8');
-        $json = json_encode($results);
+        if ($sample == "1") {
+            $sample2 = "1";
+        } else {
+            $sample2 = "0";
+        }
+
+        $finalJSON = [
+            "sections" => $sections,
+            "students" => $results,
+            "sample" => $sample2
+        ];
+        $json = json_encode($finalJSON, JSON_UNESCAPED_UNICODE);
         echo $json;
+        
         //echo json_last_error_msg();
     } catch(PDOException $e) {
         echo "Error: " . $e->getMessage();

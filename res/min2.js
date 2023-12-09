@@ -4,6 +4,8 @@ let slovin = (N, e) => {
     return n
 }
 
+
+
 window.onbeforeunload = () => {
     return "Are you sure you want to close this tab?";
 }
@@ -315,10 +317,79 @@ sub.addEventListener('click', (e) => {
         http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         http.onreadystatechange = () => {
             if(http.readyState == 4 && http.status == 200) {
+                function shuffleArray(array) {
+                    for (let i = array.length - 1; i > 0; i--) {
+                      const j = Math.floor(Math.random() * (i + 1));
+                      [array[i], array[j]] = [array[j], array[i]];
+                    }
+                  }
+                  
                 frm.classList.add('hide')
                 let array = JSON.parse(http.response)
-                let i;
-                console.log(slovin(array.length, 0.05))
+                let student = array.students
+                let sections = array.sections
+                let students = []
+                let cnt = 0;
+
+                for (let i=0; i < student.length; i++) {
+                    students.push(student[i])
+                }
+
+                for (let i=0; i < sections.length; i++) {
+                    cnt += sections[i].num
+                }
+                shuffleArray(students)
+                let samples = slovin(cnt, 0.05)
+                console.log(samples)
+                let newStuds = []
+                for (let i = 0; i < sections.length; i++) {
+                    let resulta = students.filter(obj => obj.sec_code == sections[i].sec_code);
+                    let secsample = Math.round(sections[i].num/cnt * samples)
+                    newStuds.push(resulta.slice(0, secsample))
+
+                }
+                const allObjects = []
+
+                for (let i = 0; i < newStuds.length; i++) {
+                    const innerArray = newStuds[i];
+
+                    for (let j = 0; j < innerArray.length; j++) {
+                        const currentObject = innerArray[j];
+                        allObjects.push(currentObject);
+                    }
+                }
+
+                for (let i = 0; i < allObjects.length; i++) {
+                    const tableBody = document.getElementById('data2');
+
+                    const row = tableBody.insertRow()
+
+                    const cell1 = row.insertCell(0)
+                    cell1.classList.add('no')
+                    const cell2 = row.insertCell(1)
+                    cell2.classList.add('name')
+                    const cell3 = row.insertCell(2)
+                    cell3.classList.add('level')
+                    const cell4 = row.insertCell(3)
+                    cell4.classList.add('sec')
+
+                    cell1.textContent = i+1;
+                    cell2.textContent = `${allObjects[i].fname} ${allObjects[i].gname} ${allObjects[i].mname}`
+                    cell3.textContent = allObjects[i].level
+                    cell4.textContent = allObjects[i].sec_name
+
+                    let http1 = new XMLHttpRequest()
+                    let url1 = 'updateuser.php'
+                    let params1 = `username=${allObjects[i].username}`
+                    http1.open('POST', url1, true);
+                    http1.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+                    http1.onreadystatechange = function() {
+                        if(http1.readyState == 4 && http1.status == 200) {
+                            null
+                        }
+                    }
+                    http1.send(params1)
+                }
             }
         }
         http.send(params)       
@@ -326,6 +397,4 @@ sub.addEventListener('click', (e) => {
         undefined
     }
 })
-
-
 // By Aj Acosta
